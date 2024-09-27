@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:state_management_provider/models/product.dart';
 
 class Products with ChangeNotifier {
-  List<Product> _allproducts = List.generate(
+  final List<Product> _allproducts = List.generate(
     25,
     (index) {
       return Product(

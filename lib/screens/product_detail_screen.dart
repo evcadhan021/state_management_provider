@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+// import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import '../providers/all_products.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  static const routeName = '/product-detail';
+  static const routeNameDetailScreen = '/product-detail';
+
+  const ProductDetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +16,12 @@ class ProductDetailScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Product Details'),
+        title: const Text('Product Details'),
       ),
       body: Center(
         child: Column(
           children: [
+            // hapus komen ini jika sudah tau alasan kenapa Dart menyarankan untuk mengganti Container menjadi SizedBox
             Container(
               width: double.infinity,
               height: 300,

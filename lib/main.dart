@@ -6,10 +6,12 @@ import './screens/products_overview_screen.dart';
 import './screens/product_detail_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     //*
@@ -31,7 +33,8 @@ class MyApp extends StatelessWidget {
         ),
         home: ProductsOverviewScreen(),
         routes: {
-          ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
+          ProductDetailScreen.routeNameDetailScreen: (ctx) =>
+              const ProductDetailScreen(),
         },
       ),
     );

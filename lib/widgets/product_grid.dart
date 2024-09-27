@@ -4,6 +4,7 @@ import 'package:state_management_provider/widgets/product_item.dart';
 import 'package:provider/provider.dart';
 
 class ProductGrid extends StatelessWidget {
+  const ProductGrid({super.key});
   @override
   Widget build(BuildContext context) {
     // Data dari Provider
