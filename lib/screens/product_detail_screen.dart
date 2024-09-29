@@ -22,7 +22,7 @@ class ProductDetailScreen extends StatelessWidget {
         child: Column(
           children: [
             // hapus komen ini jika sudah tau alasan kenapa Dart menyarankan untuk mengganti Container menjadi SizedBox
-            Container(
+            SizedBox(
               width: double.infinity,
               height: 300,
               child: Image.network(
