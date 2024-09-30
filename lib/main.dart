@@ -31,12 +31,23 @@ class MyApp extends StatelessWidget {
               .copyWith(secondary: Colors.amber),
           fontFamily: 'Lato',
         ),
-        home: ProductsOverviewScreen(),
+        home: const ScreenSementara(),
         routes: {
           ProductDetailScreen.routeNameDetailScreen: (ctx) =>
               const ProductDetailScreen(),
         },
       ),
+    );
+  }
+}
+
+class ScreenSementara extends StatelessWidget {
+  const ScreenSementara({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
     );
   }
 }

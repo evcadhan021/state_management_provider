@@ -21,7 +21,6 @@ class ProductDetailScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            // hapus komen ini jika sudah tau alasan kenapa Dart menyarankan untuk mengganti Container menjadi SizedBox
             SizedBox(
               width: double.infinity,
               height: 300,
