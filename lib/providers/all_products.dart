@@ -16,6 +16,7 @@ class Products with ChangeNotifier {
       );
     },
   );
+
   List<Product> get allproducts {
     return _allproducts;
   }

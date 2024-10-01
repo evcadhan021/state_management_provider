@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
               .copyWith(secondary: Colors.amber),
           fontFamily: 'Lato',
         ),
-        home: const ScreenSementara(),
+        home: ProductsOverviewScreen(),
         routes: {
           ProductDetailScreen.routeNameDetailScreen: (ctx) =>
               const ProductDetailScreen(),
@@ -41,13 +41,33 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class ScreenSementara extends StatelessWidget {
-  const ScreenSementara({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-    );
-  }
-}
+// class ScreenSementara extends StatelessWidget {
+//   ScreenSementara({super.key});
+//   List<Text> myList = List.generate(
+//       25,
+//       (index) => Text(
+//             "${index + 1}",
+//             style: const TextStyle(fontSize: 35),
+//           ));
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(),
+//       body: ListView(
+//         children: [
+//           Container(
+//             width: 100,
+//             height: 100,
+//             color: Colors.purple,
+//           ),
+//           ...myList,
+//           Container(
+//             width: 100,
+//             height: 100,
+//             color: Colors.green,
+//           )
+//         ],
+//       ),
+//     );
+//   }
+// }
