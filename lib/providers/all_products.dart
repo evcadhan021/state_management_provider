@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-import 'package:state_management_provider/models/product.dart';
+import './product.dart';
 
 class Products with ChangeNotifier {
   final List<Product> _allproducts = List.generate(
