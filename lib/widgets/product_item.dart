@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:state_management_provider/providers/cart.dart';
 import '../providers/product.dart';
 
 import '../screens/product_detail_screen.dart';
@@ -9,13 +10,16 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Mengambil data Provider menggunakan Provider.of
+    // Disini Letak mengambil data Provider menggunakan Provider.of
     final productData = Provider.of<Product>(context, listen: false);
+    final cart = Provider.of<Cart>(context, listen: false);
     print("Widget Rebuild");
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
         // Ini bagian Child
+        // ignore: sort_child_properties_last
         child: GestureDetector(
           onTap: () {
             Navigator.of(context).pushNamed(
@@ -51,7 +55,19 @@ class ProductItem extends StatelessWidget {
           trailing: IconButton(
             icon: const Icon(Icons.shopping_cart),
             onPressed: () {
-              productData.statusFav2();
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text("Berhasil Ditambahkan"),
+                  duration: Duration(
+                    milliseconds: 500,
+                  ),
+                ),
+              );
+              cart.addCart(
+                productData.id!,
+                productData.title!,
+                productData.price!,
+              );
             },
             color: Theme.of(context).colorScheme.secondary,
           ),

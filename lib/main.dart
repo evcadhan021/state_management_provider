@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:state_management_provider/providers/cart.dart';
 import './providers/all_products.dart';
 
 import './screens/products_overview_screen.dart';
@@ -14,14 +15,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //*
-    // ChangeNotifierProvider untuk memberikan akses masuk kepada Provider agar data nya bisa dipakai
-    // apabila ChangeNotifierProvider tidak dipasang maka data dari Provider tidak bisa masuk dan dipakai
-    // */
-    return ChangeNotifierProvider(
-      create: (context) {
-        return Products();
-      },
+    // Disini Letak MultiProvider berada.
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => Cart(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => Products(),
+        ),
+      ],
+      // Disini letak MaterialApp berada.
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'MyShop',
@@ -32,6 +36,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Lato',
         ),
         home: ProductsOverviewScreen(),
+        // Disini Letak jalur route berada.
         routes: {
           ProductDetailScreen.routeNameDetailScreen: (ctx) =>
               const ProductDetailScreen(),

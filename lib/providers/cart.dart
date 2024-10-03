@@ -32,4 +32,6 @@ class Cart with ChangeNotifier {
     }
     notifyListeners();
   }
+
+  findById(String? productId) {}
 }
