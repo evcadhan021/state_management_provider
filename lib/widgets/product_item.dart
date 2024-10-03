@@ -9,34 +9,12 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final productData = Provider.of<Product>(context);
+    // Mengambil data Provider menggunakan Provider.of
+    final productData = Provider.of<Product>(context, listen: false);
+    print("Widget Rebuild");
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
-        // Ini bagian Footer
-        footer: GridTileBar(
-          backgroundColor: Colors.black87,
-          leading: IconButton(
-            icon: (productData.isFavorite)
-                ? const Icon(Icons.favorite)
-                : const Icon(Icons.favorite_border_outlined),
-            color: Theme.of(context).colorScheme.secondary,
-            onPressed: () {
-              productData.statusFav();
-            },
-          ),
-          title: Text(
-            productData.title!,
-            textAlign: TextAlign.center,
-          ),
-          trailing: IconButton(
-            icon: const Icon(Icons.shopping_cart),
-            onPressed: () {
-              productData.statusFav2();
-            },
-            color: Theme.of(context).colorScheme.secondary,
-          ),
-        ),
         // Ini bagian Child
         child: GestureDetector(
           onTap: () {
@@ -49,6 +27,33 @@ class ProductItem extends StatelessWidget {
           child: Image.network(
             productData.imageUrl!,
             fit: BoxFit.cover,
+          ),
+        ),
+        // Ini bagian Footer
+        footer: GridTileBar(
+          backgroundColor: Colors.black87,
+          // sedangkan ini mengambil data Provider menggunakan Consumer
+          leading: Consumer<Product>(
+            builder: (context, productData, child) => IconButton(
+              icon: (productData.isFavorite)
+                  ? const Icon(Icons.favorite)
+                  : const Icon(Icons.favorite_border_outlined),
+              color: Theme.of(context).colorScheme.secondary,
+              onPressed: () {
+                productData.statusFav();
+              },
+            ),
+          ),
+          title: Text(
+            productData.title!,
+            textAlign: TextAlign.center,
+          ),
+          trailing: IconButton(
+            icon: const Icon(Icons.shopping_cart),
+            onPressed: () {
+              productData.statusFav2();
+            },
+            color: Theme.of(context).colorScheme.secondary,
           ),
         ),
       ),
