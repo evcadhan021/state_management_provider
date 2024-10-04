@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:state_management_provider/models/cart_item.dart';
 
 class Cart with ChangeNotifier {
-  late Map<String, CartItem> _items;
+  final Map<String, CartItem> _items = {};
 
   Map<String, CartItem> get items => _items;
+
+  int get jumlah {
+    return _items.length;
+  }
 
   void addCart(String productId, String title, double price) {
     if (_items.containsKey(productId)) {

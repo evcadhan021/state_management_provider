@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:state_management_provider/providers/cart.dart';
@@ -24,7 +26,7 @@ class ProductItem extends StatelessWidget {
           onTap: () {
             Navigator.of(context).pushNamed(
               // saat ini diKlik maka akan di arahkan ke halaman yang kita klik sesuai dengan id
-              ProductDetailScreen.routeNameDetailScreen,
+              ProductDetailScreen.routeName,
               arguments: productData.id,
             );
           },

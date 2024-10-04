@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:state_management_provider/providers/cart.dart';
+import 'package:state_management_provider/screens/cart_screen.dart';
 import './providers/all_products.dart';
 
 import './screens/products_overview_screen.dart';
@@ -35,11 +36,11 @@ class MyApp extends StatelessWidget {
               .copyWith(secondary: Colors.amber),
           fontFamily: 'Lato',
         ),
-        home: ProductsOverviewScreen(),
+        home: const ProductsOverviewScreen(),
         // Disini Letak jalur route berada.
         routes: {
-          ProductDetailScreen.routeNameDetailScreen: (ctx) =>
-              const ProductDetailScreen(),
+          ProductDetailScreen.routeName: (ctx) => const ProductDetailScreen(),
+          CartScreen.routeName: (ctx) => const CartScreen(),
         },
       ),
     );
