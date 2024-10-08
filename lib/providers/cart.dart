@@ -12,10 +12,10 @@ class Cart with ChangeNotifier {
     return _items.length;
   }
 
-  int get totalHarga {
+  double get totalHarga {
     var total = 0.0;
-    _items.forEach((key, CartItem) {
-      total += CartItem.qty * cartItem.price;
+    _items.forEach((key, cartItem) {
+      total += cartItem.qty * cartItem.price;
     });
     return total;
   }
