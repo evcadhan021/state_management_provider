@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:flutter/material.dart';
 import 'package:state_management_provider/models/cart_item.dart';
 
@@ -8,6 +10,14 @@ class Cart with ChangeNotifier {
 
   int get jumlah {
     return _items.length;
+  }
+
+  int get totalHarga {
+    var total = 0.0;
+    _items.forEach((key, CartItem) {
+      total += CartItem.qty * cartItem.price;
+    });
+    return total;
   }
 
   void addCart(String productId, String title, double price) {

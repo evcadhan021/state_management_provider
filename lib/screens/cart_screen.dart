@@ -11,6 +11,17 @@ class CartScreen extends StatelessWidget {
         title: const Text("Cart"),
         centerTitle: true,
       ),
+      body: Column(
+        children: [
+          Card(
+            margin: EdgeInsets.all(20),
+            child: Container(
+              padding: EdgeInsets.all(20),
+              child: Text("Total : \$999999"),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

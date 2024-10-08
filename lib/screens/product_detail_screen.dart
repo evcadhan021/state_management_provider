@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:badges/badges.dart' as badges; // Import package badges
+
 import '../screens/cart_screen.dart';
 import '../providers/cart.dart';
 import '../providers/all_products.dart';
@@ -21,8 +23,16 @@ class ProductDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Product Details'),
         actions: [
-          Badge(
-            //ignore: sort_child_properties_last
+          Consumer<Cart>(
+            builder: (context, value, ch) {
+              return badges.Badge(
+                badgeContent: Text(
+                  value.jumlah.toString(), // Menampilkan jumlah di badge
+                  style: const TextStyle(color: Colors.white),
+                ),
+                child: ch, // Menampilkan IconButton di dalam badge
+              );
+            },
             child: IconButton(
               icon: const Icon(Icons.shopping_cart),
               onPressed: () {
@@ -31,8 +41,7 @@ class ProductDetailScreen extends StatelessWidget {
                 );
               },
             ),
-            label: const Text("0"),
-          )
+          ),
         ],
       ),
       body: Center(
