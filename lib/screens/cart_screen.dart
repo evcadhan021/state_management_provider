@@ -43,6 +43,21 @@ class CartScreen extends StatelessWidget {
                 ),
               );
             },
+          )),
+          Expanded(
+              child: ListView.builder(
+            itemCount: cartData.items.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text("${cartData.items.values.toList()[index].title}"),
+                subtitle: Text(
+                    "Quantity : ${cartData.items.values.toList()[index].qty} "),
+                trailing: Container(
+                  child: Text(
+                      '\$${cartData.items.values.toList()[index].qty * cartData.items.values.toList()[index].price}'),
+                ),
+              );
+            },
           ))
         ],
       ),
